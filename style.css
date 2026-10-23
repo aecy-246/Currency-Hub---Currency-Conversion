@@ -1,0 +1,1010 @@
+
+/* =========================
+   1. RESET & BASE STYLES
+========================= */
+
+:root {
+    --primary: #3568ff;
+    --primary-dark: #2852df;
+    --purple: #7856f9;
+    --text: #111b36;
+    --muted: #64718e;
+    --border: #e0e8f7;
+    --surface: #ffffff;
+    --background: #f7faff;
+    --radius-lg: 24px;
+    --shadow: 0 20px 60px rgba(61, 103, 190, 0.12);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    color: var(--text);
+    background: var(--surface);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button,
+select {
+    cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid rgba(53, 104, 255, 0.45);
+    outline-offset: 3px;
+}
+
+
+/* =========================
+   2. NAVIGATION
+========================= */
+
+.navbar {
+    width: 100%;
+    max-width: 1440px;
+    min-height: 82px;
+    margin: 0 auto;
+    padding: 18px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    position: relative;
+    z-index: 5;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -1.2px;
+    white-space: nowrap;
+}
+
+.logo-icon {
+    font-size: 38px;
+    line-height: 1;
+    color: var(--primary);
+}
+
+.logo-highlight {
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+}
+
+.nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--muted);
+    position: relative;
+    transition: color 0.25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--text);
+}
+
+.nav-links a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -12px;
+    height: 2px;
+    background: var(--primary);
+    border-radius: 4px;
+}
+
+.nav-button {
+    padding: 12px 20px;
+    color: white;
+    background: linear-gradient(110deg, var(--primary), var(--purple));
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.nav-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(74, 94, 245, 0.25);
+}
+
+
+/* =========================
+   3. HERO SECTION
+========================= */
+
+.hero {
+    position: relative;
+    padding: 52px 24px 74px;
+    isolation: isolate;
+    background:
+        radial-gradient(ellipse at 50% 35%, #ffffff 0%, #f2f7ff 50%, transparent 78%),
+        linear-gradient(180deg, #fbfdff 0%, #eef5ff 72%, #ffffff 100%);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 35px;
+    left: 4%;
+    right: 4%;
+    height: 350px;
+    opacity: 0.4;
+    background-image: radial-gradient(#b7cdf7 1.6px, transparent 1.6px);
+    background-size: 12px 12px;
+    mask-image: radial-gradient(ellipse at center, black 0%, transparent 72%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 72%);
+    pointer-events: none;
+}
+
+.hero-content {
+    max-width: 850px;
+    margin: 0 auto 38px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.status-pill {
+    width: fit-content;
+    margin: 0 auto 24px;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    border: 1px solid #e0eaff;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #526489;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    flex-shrink: 0;
+    background: #22c77a;
+    border-radius: 50%;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 5.4vw, 66px);
+    line-height: 1.12;
+    letter-spacing: -3.5px;
+    font-weight: 800;
+}
+
+.hero h1 span {
+    color: var(--primary);
+    background: linear-gradient(100deg, #3286ff, #7655f8);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+    max-width: 590px;
+    margin: 20px auto 0;
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--muted);
+}
+
+
+/* =========================
+   4. DECORATIVE CURRENCY SYMBOLS
+========================= */
+
+.hero-decoration {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 0;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+    box-shadow: 0 12px 30px rgba(73, 109, 198, 0.12);
+    font-size: 34px;
+    font-weight: 700;
+    pointer-events: none;
+}
+
+.decoration-dollar {
+    top: 180px;
+    left: 8%;
+    color: #3976fa;
+    background: linear-gradient(145deg, #dceaff, #b9d1ff);
+}
+
+.decoration-euro {
+    top: 300px;
+    left: 18%;
+    color: white;
+    background: linear-gradient(145deg, #a99aff, #7555f7);
+}
+
+.decoration-pound {
+    top: 135px;
+    right: 15%;
+    color: white;
+    background: linear-gradient(145deg, #ffe1bf, #ffb986);
+}
+
+.decoration-yen {
+    top: 305px;
+    right: 9%;
+    color: white;
+    background: linear-gradient(145deg, #8be6c8, #26bd9c);
+}
+
+
+/* =========================
+   5. CONVERTER CARD
+========================= */
+
+.converter-card {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 34px;
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(219, 231, 250, 0.95);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(14px);
+}
+
+.converter-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+.eyebrow {
+    color: var(--primary);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+}
+
+.converter-heading h2 {
+    margin-top: 4px;
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+}
+
+.live-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 100px;
+    background: #f1fbf6;
+    color: #27815b;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.conversion-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1fr);
+    align-items: end;
+    gap: 18px;
+}
+
+.currency-field {
+    min-width: 0;
+}
+
+.currency-field > label {
+    display: block;
+    margin-bottom: 9px;
+    color: #52617f;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.currency-box {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid #dce5f5;
+    border-radius: 13px;
+    background: white;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.currency-box:focus-within {
+    border-color: #7b9fff;
+    box-shadow: 0 0 0 4px rgba(53, 104, 255, 0.08);
+}
+
+.currency-box input {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    padding: 15px 18px 12px;
+    color: var(--text);
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 31px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.currency-box input:focus-visible {
+    outline: none;
+}
+
+.result-amount {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    padding: 12px 18px;
+    overflow-wrap: anywhere;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+#fromSelect, #toSelect{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:10px;
+    width: 100%;
+    text-align: center;
+}
+
+.currency-select {
+    position: relative;
+    min-height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 15px;
+    border-top: 1px solid #edf1f8;
+    background: #f8faff;
+}
+
+.currency-info {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.flag {
+    width: 31px;
+    height: 31px;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: white;
+    font-size: 24px;
+}
+
+.currency-info > div {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.currency-info strong {
+    font-size: 14px;
+}
+
+.currency-info > div > span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.currency-select select {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.currency-select::after {
+    content: "⌄";
+    margin-left: auto;
+    color: #405174;
+    font-size: 22px;
+    pointer-events: none;
+}
+
+
+/* =========================
+   6. SWAP BUTTON
+========================= */
+
+.swap-button {
+    width: 46px;
+    height: 46px;
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dce7ff;
+    border-radius: 50%;
+    background: #eef4ff;
+    color: var(--primary);
+    font-size: 27px;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.swap-button:hover {
+    background: #dce7ff;
+    transform: rotate(180deg);
+}
+
+
+/* =========================
+   7. EXCHANGE RATE & CTA
+========================= */
+
+.exchange-info {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin: 23px 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.exchange-icon {
+    color: #18a76e;
+    font-size: 16px;
+}
+
+.exchange-info strong {
+    color: #344465;
+    font-weight: 700;
+}
+
+.rate-note {
+    padding: 3px 7px;
+    border-radius: 5px;
+    background: #fff4df;
+    color: #996319;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.convert-button {
+    width: 100%;
+    min-height: 57px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border: none;
+    border-radius: 13px;
+    background: linear-gradient(105deg, #3586ff 0%, #4d66fa 55%, #8055f7 100%);
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    box-shadow: 0 8px 20px rgba(75, 101, 248, 0.19);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.convert-button span {
+    font-size: 22px;
+    transition: transform 0.25s ease;
+}
+
+.convert-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(75, 101, 248, 0.28);
+}
+
+.convert-button:hover span {
+    transform: translateX(4px);
+}
+
+.converter-note {
+    margin-top: 14px;
+    color: #8792aa;
+    text-align: center;
+    font-size: 11px;
+}
+
+
+/* =========================
+   8. FEATURES
+========================= */
+
+.features {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 55px 30px 70px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 8px 22px;
+    border-right: 1px solid var(--border);
+}
+
+.feature-item:first-child {
+    padding-left: 0;
+}
+
+.feature-item:last-child {
+    padding-right: 0;
+    border-right: none;
+}
+
+.feature-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.blue-icon {
+    color: #3286ff;
+    background: #e4f3ff;
+}
+
+.green-icon {
+    color: #12a873;
+    background: #e0f9ee;
+}
+
+.purple-icon {
+    color: #7358f6;
+    background: #efecff;
+}
+
+.orange-icon {
+    color: #f28b48;
+    background: #fff0e4;
+}
+
+.feature-item h3 {
+    margin: 3px 0 7px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.feature-item p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   9. ABOUT SECTION
+========================= */
+
+.about-section {
+    padding: 75px 24px;
+    text-align: center;
+    background: linear-gradient(180deg, #f7f9ff, #ffffff);
+}
+
+.about-section h2 {
+    margin: 14px auto;
+    font-size: clamp(27px, 4vw, 39px);
+    line-height: 1.25;
+    letter-spacing: -1.5px;
+}
+
+.about-section h2 span {
+    color: var(--primary);
+}
+
+.about-section > p {
+    max-width: 600px;
+    margin: 0 auto 23px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.text-link span {
+    font-size: 20px;
+    transition: transform 0.2s ease;
+}
+
+.text-link:hover span {
+    transform: translateX(4px);
+}
+
+
+/* =========================
+   10. FOOTER
+========================= */
+
+.footer {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 25px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-top: 1px solid #edf1f8;
+}
+
+.footer-logo {
+    font-size: 19px;
+}
+
+.footer-logo .logo-icon {
+    font-size: 29px;
+}
+
+.footer p,
+.copyright {
+    color: #8792aa;
+    font-size: 11px;
+}
+
+
+/* =========================
+   11. RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 1050px) {
+    .navbar {
+        padding-inline: 4%;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .hero-decoration {
+        opacity: 0.65;
+    }
+
+    .decoration-dollar {
+        left: 3%;
+    }
+
+    .decoration-euro {
+        left: 7%;
+    }
+
+    .decoration-pound {
+        right: 5%;
+    }
+
+    .decoration-yen {
+        right: 3%;
+    }
+
+    .converter-card {
+        max-width: 850px;
+        padding: 28px;
+    }
+
+    .features {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px 0;
+    }
+
+    .feature-item:nth-child(2) {
+        border-right: none;
+    }
+
+    .feature-item:nth-child(3) {
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 700px) {
+    .navbar {
+        min-height: 72px;
+        padding: 16px 5%;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .logo-icon {
+        font-size: 31px;
+    }
+
+    .nav-button {
+        padding: 10px 13px;
+        font-size: 12px;
+    }
+
+    .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: clamp(14px, 4vw, 27px);
+        padding-top: 8px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .nav-links a.active::after {
+        bottom: -7px;
+    }
+
+    .hero {
+        padding: 45px 16px 48px;
+    }
+
+    .hero-content {
+        margin-bottom: 30px;
+    }
+
+    .status-pill {
+        margin-bottom: 20px;
+        font-size: 11px;
+    }
+
+    .hero h1 {
+        font-size: clamp(34px, 8vw, 48px);
+        letter-spacing: -2px;
+    }
+
+    .hero-description {
+        max-width: 430px;
+        margin-top: 16px;
+        font-size: 14px;
+    }
+
+    .hero-decoration {
+        width: 43px;
+        height: 43px;
+        font-size: 24px;
+        opacity: 0.5;
+    }
+
+    .decoration-dollar {
+        top: 120px;
+        left: 3%;
+    }
+
+    .decoration-euro {
+        top: 280px;
+        left: 2%;
+    }
+
+    .decoration-pound {
+        top: 120px;
+        right: 3%;
+    }
+
+    .decoration-yen {
+        top: 290px;
+        right: 2%;
+    }
+
+    .converter-card {
+        padding: 22px 17px;
+        border-radius: 19px;
+    }
+
+    .converter-heading {
+        align-items: flex-start;
+        margin-bottom: 24px;
+    }
+
+    .converter-heading h2 {
+        font-size: 19px;
+    }
+
+    .eyebrow {
+        font-size: 9px;
+    }
+
+    .live-badge {
+        padding: 7px 9px;
+        font-size: 9px;
+    }
+
+    .conversion-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 13px;
+    }
+
+    .currency-box input {
+        padding: 12px 15px;
+        font-size: 27px;
+    }
+
+    .result-amount {
+        min-height: 55px;
+        padding: 10px 15px;
+        font-size: 27px;
+    }
+
+    .currency-select {
+        min-height: 59px;
+        padding: 10px 12px;
+    }
+
+    .swap-button {
+        width: 40px;
+        height: 40px;
+        margin: -1px auto;
+        transform: rotate(90deg);
+    }
+
+    .swap-button:hover {
+        transform: rotate(270deg);
+    }
+
+    .exchange-info {
+        gap: 7px;
+        margin: 19px 0;
+        font-size: 11px;
+    }
+
+    .convert-button {
+        min-height: 53px;
+        font-size: 14px;
+    }
+
+    .features {
+        padding: 38px 22px 45px;
+        gap: 27px 0;
+    }
+
+    .feature-item {
+        gap: 11px;
+        padding: 5px 12px;
+    }
+
+    .feature-icon {
+        width: 39px;
+        height: 39px;
+        font-size: 20px;
+    }
+
+    .feature-item h3 {
+        font-size: 12px;
+    }
+
+    .feature-item p {
+        font-size: 11px;
+        line-height: 1.7;
+    }
+
+    .about-section {
+        padding: 55px 22px;
+    }
+
+    .footer {
+        padding: 24px 5%;
+        flex-wrap: wrap;
+    }
+
+    .footer p {
+        order: 3;
+        width: 100%;
+    }
+}
+
+@media (max-width: 390px) {
+    .navbar {
+        gap: 12px;
+    }
+
+    .logo {
+        font-size: 18px;
+        gap: 5px;
+    }
+
+    .nav-button {
+        padding: 9px 10px;
+        gap: 5px;
+    }
+
+    .nav-links {
+        gap: 13px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .converter-heading {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .feature-item,
+    .feature-item:first-child,
+    .feature-item:nth-child(3),
+    .feature-item:last-child {
+        padding: 0;
+        border-right: none;
+    }
+}
